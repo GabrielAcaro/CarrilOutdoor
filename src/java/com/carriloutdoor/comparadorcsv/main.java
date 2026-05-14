@@ -1,10 +1,10 @@
-package comparadorcsvproductos;
+package java.com.carriloutdoor.comparadorcsv;
 
 /**
- * ComparadorCSVProductos
+ * main
  * @author Gabriel Acaro Sánchez
  */
-public class ComparadorCSVProductos {
+public class main {
     public static void main(String[] args) {
         
     }
