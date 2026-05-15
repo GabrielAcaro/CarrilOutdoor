@@ -1,4 +1,4 @@
-package java.com.carriloutdoor.comparadorcsv.ui;
+package main.java.com.carriloutdoor.comparadorcsvproductos.ui;
 
 /**
  * PanelExportacion

@@ -1,0 +1,21 @@
+# NetBeans private files
+nbproject/private/
+
+# Build folders
+build/
+dist/
+
+# Java compiled files
+*.class
+
+# Real CSV input files
+data/entrada/*.csv
+data/entrada/*.CSV
+
+# Real CSV output files
+data/salida/*.csv
+data/salida/*.CSV
+
+# Keep empty folders
+!data/entrada/.gitkeep
+!data/salida/.gitkeep

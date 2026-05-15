@@ -1,4 +1,4 @@
-package java.com.carriloutdoor.comparadorcsv.service;
+package main.java.com.carriloutdoor.comparadorcsvproductos.service;
 
 /**
  * GeneradorCodigoService
