@@ -37,6 +37,7 @@ public class Main {
     
     
     // Variables static del programa (rutas de archivos)
+    
         private static String rutaCsvArtErp = "C:\\Users\\gabri\\WorkSpace_Netbeans\\ProgramasArmeria\\ComparadorCSVProductos\\data\\entrada\\listadoArticulosERP.csv";
         private static String rutaCsvSubArtErp = "C:\\Users\\gabri\\WorkSpace_Netbeans\\ProgramasArmeria\\ComparadorCSVProductos\\data\\entrada\\listadoSubarticulosERP.csv";
         private static String rutaCsvArtPrestaShop = "C:\\Users\\gabri\\WorkSpace_Netbeans\\ProgramasArmeria\\ComparadorCSVProductos\\data\\entrada\\listadoPrestashop.csv";
