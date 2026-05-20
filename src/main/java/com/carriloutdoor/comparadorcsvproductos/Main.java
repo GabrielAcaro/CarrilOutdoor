@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
 import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
+import main.java.com.carriloutdoor.comparadorcsvproductos.service.BuscadorProductosService;
 import main.java.com.carriloutdoor.comparadorcsvproductos.service.CsvService;
 import main.java.com.carriloutdoor.comparadorcsvproductos.service.InformeResultadoService;
 
@@ -105,6 +106,14 @@ public class Main {
                 
                 case 3 -> {
                     InformeResultadoService.pedirListaUserInfoIntervaloColumnas(listaProductosERP, listaProductosPrestaShop);
+                }
+
+                case 4 -> {
+                    InformeResultadoService.pedirListaUserInfoIntervaloFilasColumnas(listaProductosERP, listaProductosPrestaShop);
+                }
+
+                case 5 -> {
+                    BuscadorProductosService.solicitarListaUser(listaProductosERP, listaProductosPrestaShop);
                 }
                 
                 case 0 -> {

@@ -120,6 +120,54 @@ public class InformeResultadoService {
             }
         }
     }
+
+    // Pedir seleccion lista intervalo columnas (ERP o PrestaShop)
+    public static void pedirListaUserInfoIntervaloFilasColumnas(ArrayList<ProductoERP> listaProductosERP, ArrayList<ProductoPrestaShop> listaProductosPrestaShop){
+        String[] colsERP = Main.COLUMNASERP;
+        String[] colsPrestaShop = Main.COLUMNASPRESTASHOP;
+        int[] filas = new int[0];
+        int[] columnas = new int[0];
+
+        int userOption = 0;
+
+        System.out.println("Pulse un numero para elegir la lista de productos que quiere mostrar:\n");
+        System.out.println("Lista de productos ERP: 1)");
+        System.out.println("Lista de productos Prestashop: 2)");
+        userOption = Integer.parseInt(Main.scanner());
+
+        switch (userOption) {
+            case 1 -> {
+                if (!listaProductosERP.isEmpty()) {
+                    filas = pedirIntervaloFilasProductosERP(listaProductosERP);
+                    columnas = pedirIntervaloColumnasProductosERP(colsERP);
+                    if (columnas[0] >= 0 && columnas[1] >= columnas[0] && filas[0] >= 0 && filas[1] >= filas[0]) {
+                        mostrarInfoIntervaloFilasColumnasProductosERP(listaProductosERP, filas, columnas);
+                    }else {
+                        System.err.println("No se introdujeron los intervalos de filas o columnas correctamente!");
+                    }
+                } else {
+                    System.err.println("No se cargaron los datos de los productos correctamente!");
+                }
+            }
+
+            case 2 -> {
+                if (!listaProductosPrestaShop.isEmpty()) {
+                    columnas = pedirIntervaloColumnasProductosPrestaShop(colsPrestaShop);
+                    if (columnas[0] >= 0 && columnas[1] >= columnas[0]) {
+                        mostrarInfoIntervaloColumnasProductosPrestaShop(listaProductosPrestaShop, columnas);
+                    }else {
+                        System.err.println("No se introdujeron los intervalos de columnas correctamente!");
+                    }
+                } else {
+                    System.err.println("No se cargaron los datos de los productos correctamente!");
+                }
+            }
+
+            default -> {
+                System.err.println("Introduzca un numero entre el 1 y el 2!");
+            }
+        }
+    }
     
     // Pedir Intervalo Numerico
     
@@ -409,6 +457,25 @@ public class InformeResultadoService {
                 System.out.println(campos[j]);
             }
 
+            System.out.println("/////////////////////////\n");
+        }
+    }
+
+    // Mostrar info intervalo filas y columnas ERP
+    public static void mostrarInfoIntervaloFilasColumnasProductosERP(ArrayList<ProductoERP> listaProductosERP, int[] filas, int[] columnas) {
+        ProductoERP p = new ProductoERP();
+        String[] campos = new String[0];
+
+        System.out.println("Informacion detallada de los productos de ERP ( Filas: " + (filas[0] + 1) + (filas[1] + 1) + "Columnas: "
+                + (columnas[0] + 1) + " a " + (columnas[1] + 1) + ")\n");
+
+        for (int i = filas[0]; i <= filas[1]; i++) {
+            p = listaProductosERP.get(i);
+            campos = obtenerCamposProductosERP(p);
+
+            for (int j = columnas[0]; j <= columnas[1]; j++) {
+                System.out.println(campos[j]);
+            }
             System.out.println("/////////////////////////\n");
         }
     }
