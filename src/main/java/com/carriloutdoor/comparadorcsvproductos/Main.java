@@ -60,6 +60,16 @@ public class Main {
         
         return entry.nextLine();
     }
+
+    public static String comprobarScanner(String textoUser){
+        if (textoUser == null){
+            textoUser = "";
+        } else {
+           textoUser = textoUser.trim();
+        }
+
+        return textoUser;
+    }
     
     // Metodo para pedir la ruta de los CSV al user
     public static void pedirRutasCSV() {
