@@ -1,4 +1,4 @@
-package java.com.carriloutdoor.comparadorcsv.util;
+package main.java.com.carriloutdoor.comparadorcsvproductos.util;
 
 /**
  * ValidacionUtil

@@ -1,4 +1,4 @@
-package java.com.carriloutdoor.comparadorcsv.config;
+package main.java.com.carriloutdoor.comparadorcsvproductos.config;
 
 /**
  * ReglasComparacion

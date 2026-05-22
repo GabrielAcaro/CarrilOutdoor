@@ -1,4 +1,4 @@
-package java.com.carriloutdoor.comparadorcsv.model;
+package main.java.com.carriloutdoor.comparadorcsvproductos.model;
 
 /**
  * Coincidencia
