@@ -26,6 +26,10 @@ data/salida/*.xls
 data/salida/*.XLSX
 data/salida/*.XLS
 
+# Real input/output files
+data/entrada/*
+data/salida/*
+
 # Keep empty data folders
 !data/entrada/.gitkeep
 !data/salida/.gitkeep
