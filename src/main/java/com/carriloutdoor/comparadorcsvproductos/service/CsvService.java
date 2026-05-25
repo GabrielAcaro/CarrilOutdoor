@@ -1,12 +1,12 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos.service;
+package com.carriloutdoor.comparadorcsvproductos.service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
 
 /**
  * CsvService

@@ -1,12 +1,12 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos;
+package com.carriloutdoor.comparadorcsvproductos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
-import main.java.com.carriloutdoor.comparadorcsvproductos.service.BuscadorProductosService;
-import main.java.com.carriloutdoor.comparadorcsvproductos.service.CsvService;
-import main.java.com.carriloutdoor.comparadorcsvproductos.service.InformeResultadoService;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
+import com.carriloutdoor.comparadorcsvproductos.service.BuscadorProductosService;
+import com.carriloutdoor.comparadorcsvproductos.service.CsvService;
+import com.carriloutdoor.comparadorcsvproductos.service.InformeResultadoService;
 
 /**
  * Main
@@ -60,7 +60,7 @@ public class Main {
         
         return entry.nextLine();
     }
-
+    // Metodo que limpia los textos introducidos por el user y comprueba que no sea null
     public static String comprobarScanner(String textoUser){
         if (textoUser == null){
             textoUser = "";
@@ -123,7 +123,7 @@ public class Main {
                 }
 
                 case 5 -> {
-                    BuscadorProductosService.solicitarListaUser(listaProductosERP, listaProductosPrestaShop);
+                    BuscadorProductosService.buscarProductos(listaProductosERP, listaProductosPrestaShop);
                 }
                 
                 case 0 -> {

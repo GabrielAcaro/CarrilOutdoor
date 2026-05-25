@@ -1,9 +1,9 @@
-# NetBeans private files
-nbproject/private/
+# IntelliJ IDEA
+.idea/
+*.iml
 
-# Build folders
-build/
-dist/
+# Maven build
+target/
 
 # Java compiled files
 *.class
@@ -16,6 +16,23 @@ data/entrada/*.CSV
 data/salida/*.csv
 data/salida/*.CSV
 
-# Keep empty folders
+# Real Excel input/output files
+data/entrada/*.xlsx
+data/entrada/*.xls
+data/entrada/*.XLSX
+data/entrada/*.XLS
+data/salida/*.xlsx
+data/salida/*.xls
+data/salida/*.XLSX
+data/salida/*.XLS
+
+# Keep empty data folders
 !data/entrada/.gitkeep
 !data/salida/.gitkeep
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
