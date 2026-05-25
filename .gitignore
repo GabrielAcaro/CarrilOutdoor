@@ -2,29 +2,16 @@
 .idea/
 *.iml
 
-# Maven build
+# NetBeans / Ant
+nbproject/
+build/
+dist/
+
+# Maven
 target/
 
 # Java compiled files
 *.class
-
-# Real CSV input files
-data/entrada/*.csv
-data/entrada/*.CSV
-
-# Real CSV output files
-data/salida/*.csv
-data/salida/*.CSV
-
-# Real Excel input/output files
-data/entrada/*.xlsx
-data/entrada/*.xls
-data/entrada/*.XLSX
-data/entrada/*.XLS
-data/salida/*.xlsx
-data/salida/*.xls
-data/salida/*.XLSX
-data/salida/*.XLS
 
 # Real input/output files
 data/entrada/*
