@@ -1,4 +1,4 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos.service;
+package com.carriloutdoor.comparadorcsvproductos.service;
 
 /**
  * NormalizadorService

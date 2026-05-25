@@ -1,4 +1,4 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos.ui;
+package com.carriloutdoor.comparadorcsvproductos.ui;
 
 /**
  * VentanaPrincipal

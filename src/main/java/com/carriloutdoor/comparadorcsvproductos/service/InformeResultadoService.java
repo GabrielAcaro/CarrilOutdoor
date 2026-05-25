@@ -1,9 +1,9 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos.service;
+package com.carriloutdoor.comparadorcsvproductos.service;
 
 import java.util.ArrayList;
-import main.java.com.carriloutdoor.comparadorcsvproductos.Main;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
-import main.java.com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
+import com.carriloutdoor.comparadorcsvproductos.Main;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoERP;
+import com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
 
 /**
  * InformeResultadoService

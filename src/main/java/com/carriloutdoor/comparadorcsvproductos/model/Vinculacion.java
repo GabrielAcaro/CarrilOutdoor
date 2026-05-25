@@ -1,4 +1,4 @@
-package main.java.com.carriloutdoor.comparadorcsvproductos.model;
+package com.carriloutdoor.comparadorcsvproductos.model;
 
 /**
  * Vinculacion
