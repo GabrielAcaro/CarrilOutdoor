@@ -127,6 +127,21 @@ public class BuscadorProductosService {
                 pedirNombreProveedor(listaProductosERP);
             }
 
+            case 6 -> {
+                pedirMarca(listaProductosERP);
+            }
+
+            case 7 -> {
+                pedirColor(listaProductosERP);
+            }
+
+            case 8 -> {
+                pedirTalla(listaProductosERP);
+            }
+            case 9 -> {
+                pedirCalibre(listaProductosERP);
+            }
+
             default -> {
                 System.err.println("Elija un numero entre el 1 y el 5!");
             }
@@ -169,6 +184,10 @@ public class BuscadorProductosService {
         System.out.println("Codigo de barras / Ean: 3");
         System.out.println("Codigo de referencia: 4");
         System.out.println("Nombre del proveedor: 5");
+        System.out.println("Marca: 6");
+        System.out.println("Color: 7");
+        System.out.println("Talla: 8");
+        System.out.println("Calibre: 9");
     }
 
     // Metodo que muestra el mini menu de la busqueda de productos del PrestaShop
@@ -186,7 +205,10 @@ public class BuscadorProductosService {
         System.out.println("Codigo: " + listaProductosERP.get(i).getCodigo());
         System.out.println("Codigo de barras / Ean: " + listaProductosERP.get(i).getEan());
         System.out.println("Codigo de referencia: " + listaProductosERP.get(i).getCodReferencia() + "\n");
-        System.out.println("Medida / Talla / Calibre: " + listaProductosERP.get(i).getTalla());
+        System.out.println("Marca: "+ listaProductosERP.get(i).getMarca());
+        System.out.println("Color: "+ listaProductosERP.get(i).getColor());
+        System.out.println("Talla: "+ listaProductosERP.get(i).getTalla());
+        System.out.println("Calibre: "+ listaProductosERP.get(i).getCalibre());
         System.out.println("Proveedor: " + listaProductosERP.get(i).getNombreProveedor());
         System.out.println("Observaciones: " + listaProductosERP.get(i).getObservaciones() + "\n");
     }
@@ -364,6 +386,115 @@ public class BuscadorProductosService {
             System.err.println("No se encontró el producto que esta buscando!\n");
         }
     }
+
+    // Metodo que pide la Marca a buscar
+    public static void pedirMarca(ArrayList<ProductoERP> listaProductosERP) {
+        // Declaracion de variables
+        String marca = "";
+        boolean encontrado = false;
+
+        System.out.println("Introduzca el nombre de la marca a buscar en la lista: ");
+        marca = Main.comprobarScanner(Main.scanner()); // Llamada a metodos para pedir un texto al usuario, limpiarlo y almacenarlo
+        marca = marca.toUpperCase();
+
+        if (!marca.isEmpty()) {
+            for (int i = 0; i < listaProductosERP.size(); i++) { // Recorremos toda la lista para encontrar todas las coincidencias
+                if (listaProductosERP.get(i).getMarca() != null && listaProductosERP.get(i).getMarca().trim().toUpperCase().contains(marca)) {
+                    mostrarInfoProductosERPEncontrado(listaProductosERP, i);
+                    encontrado = true;
+                }
+            }
+        }
+
+        // Mensaje de feedback
+        if (marca.isEmpty()) {
+            System.err.println("Introduzca texto para poder buscar!");
+        }else if (!encontrado) {
+            System.err.println("No se encontró el producto que esta buscando!\n");
+        }
+    }
+
+    // Metodo que pide la Marca a buscar
+    public static void pedirColor(ArrayList<ProductoERP> listaProductosERP) {
+        // Declaracion de variables
+        String color = "";
+        boolean encontrado = false;
+
+        System.out.println("Introduzca el color a buscar en la lista: ");
+        color = Main.comprobarScanner(Main.scanner()); // Llamada a metodos para pedir un texto al usuario, limpiarlo y almacenarlo
+        color = color.toUpperCase();
+
+        if (!color.isEmpty()) {
+            for (int i = 0; i < listaProductosERP.size(); i++) { // Recorremos toda la lista para encontrar todas las coincidencias
+                if (listaProductosERP.get(i).getColor() != null && listaProductosERP.get(i).getColor().trim().toUpperCase().contains(color)) {
+                    mostrarInfoProductosERPEncontrado(listaProductosERP, i);
+                    encontrado = true;
+                }
+            }
+        }
+
+        // Mensaje de feedback
+        if (color.isEmpty()) {
+            System.err.println("Introduzca texto para poder buscar!");
+        }else if (!encontrado) {
+            System.err.println("No se encontró el producto que esta buscando!\n");
+        }
+    }
+
+    // Metodo que pide la Marca a buscar
+    public static void pedirTalla(ArrayList<ProductoERP> listaProductosERP) {
+        // Declaracion de variables
+        String talla = "";
+        boolean encontrado = false;
+
+        System.out.println("Introduzca la talla a buscar en la lista: ");
+        talla = Main.comprobarScanner(Main.scanner()); // Llamada a metodos para pedir un texto al usuario, limpiarlo y almacenarlo
+        talla = talla.toUpperCase();
+
+        if (!talla.isEmpty()) {
+            for (int i = 0; i < listaProductosERP.size(); i++) { // Recorremos toda la lista para encontrar todas las coincidencias
+                if (listaProductosERP.get(i).getTalla() != null && listaProductosERP.get(i).getTalla().trim().toUpperCase().contains(talla)) {
+                    mostrarInfoProductosERPEncontrado(listaProductosERP, i);
+                    encontrado = true;
+                }
+            }
+        }
+
+        // Mensaje de feedback
+        if (talla.isEmpty()) {
+            System.err.println("Introduzca texto para poder buscar!");
+        }else if (!encontrado) {
+            System.err.println("No se encontró el producto que esta buscando!\n");
+        }
+    }
+
+    // Metodo que pide la Marca a buscar
+    public static void pedirCalibre(ArrayList<ProductoERP> listaProductosERP) {
+        // Declaracion de variables
+        String calibre = "";
+        boolean encontrado = false;
+
+        System.out.println("Introduzca el calibre a buscar en la lista: ");
+        calibre = Main.comprobarScanner(Main.scanner()); // Llamada a metodos para pedir un texto al usuario, limpiarlo y almacenarlo
+        calibre = calibre.toUpperCase();
+
+        if (!calibre.isEmpty()) {
+            for (int i = 0; i < listaProductosERP.size(); i++) { // Recorremos toda la lista para encontrar todas las coincidencias
+                if (listaProductosERP.get(i).getCalibre() != null && listaProductosERP.get(i).getCalibre().trim().toUpperCase().contains(calibre)) {
+                    mostrarInfoProductosERPEncontrado(listaProductosERP, i);
+                    encontrado = true;
+                }
+            }
+        }
+
+        // Mensaje de feedback
+        if (calibre.isEmpty()) {
+            System.err.println("Introduzca texto para poder buscar!");
+        }else if (!encontrado) {
+            System.err.println("No se encontró el producto que esta buscando!\n");
+        }
+    }
+
     // Metodo que pide el Id a buscar
     public static void pedirId(ArrayList<ProductoPrestaShop> listaProductosPrestaShop) {
 

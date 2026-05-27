@@ -331,17 +331,39 @@ public class InformeResultadoService {
     
     //Mostrar info completa ERP
     public static void mostrarInfoCompletaProductosERP(ArrayList<ProductoERP> listaProductosERP) {
-        System.out.println("\nInformacion detallada y completa de los productos del ERP: \n");
-        
-        for (ProductoERP p : listaProductosERP) {
-            System.out.println("Nombre del producto: " + p.getNombre() + "\n");
-            System.out.println("Codigo: " + p.getCodigo());
-            System.out.println("Codigo de barras / Ean: " + p.getEan());
-            System.out.println("Codigo de referencia: " + p.getCodReferencia() + "\n");
-            System.out.println("Medida / Talla / Calibre: " + p.getTalla());
-            System.out.println("Proveedor: " + p.getNombreProveedor());
-            System.out.println("Observaciones: " + p.getObservaciones() + "\n");
-            System.out.println("/////////////////////////\n");
+        ProductoERP producto = null;
+
+        int numeroProducto = 0;
+
+        System.out.println("\nInformacion detallada y completa de los productos del ERP:\n");
+
+        if (listaProductosERP != null) {
+            for (int i = 0; i < listaProductosERP.size(); i++) {
+                producto = listaProductosERP.get(i);
+                numeroProducto = i + 1;
+
+                System.out.println("Producto ERP numero: " + numeroProducto);
+                System.out.println("-------------------------");
+
+                mostrarCampoNoVacio("Nombre del producto", producto.getNombre());
+                mostrarCampoNoVacio("Codigo", producto.getCodigo());
+                mostrarCampoNoVacio("Codigo de barras / EAN", producto.getEan());
+                mostrarCampoNoVacio("Codigo de referencia", producto.getCodReferencia());
+                mostrarCampoNoVacio("Marca", producto.getMarca());
+                mostrarCampoNoVacio("Color", producto.getColor());
+                mostrarCampoNoVacio("Talla", producto.getTalla());
+                mostrarCampoNoVacio("Calibre", producto.getCalibre());
+                mostrarCampoNoVacio("Proveedor", producto.getNombreProveedor());
+                mostrarCampoNoVacio("Observaciones", producto.getObservaciones());
+
+                System.out.println("/////////////////////////\n");
+            }
+        }
+    }
+
+    private static void mostrarCampoNoVacio(String nombreCampo, String valorCampo) {
+        if (valorCampo != null && !valorCampo.trim().isEmpty()) {
+            System.out.println(nombreCampo + ": " + valorCampo);
         }
     }
     
@@ -478,5 +500,57 @@ public class InformeResultadoService {
             }
             System.out.println("/////////////////////////\n");
         }
+    }
+
+    // Mostrar resumen de deteccion de atributos
+    public static void mostrarResumenAtributosProductosERP(ArrayList<ProductoERP> listaProductosERP, ArrayList<ProductoPrestaShop> listaProductosPrestaShop) {
+        String marca = "", color = "", talla = "", calibre = "";
+
+        int contadorMarca = 0, contadorMarcaEmpty = 0, contadorColor = 0, contadorColorEmpty = 0;
+        int contadorTalla = 0, contadorTallaEmpty = 0, contadorCalibre = 0, contadorCalibreEmpty = 0;
+
+        System.out.println("Resumen de Atributos:\n");
+
+        if (listaProductosERP != null) {
+            for (int i = 0; i < listaProductosERP.size(); i++) {
+                marca = listaProductosERP.get(i).getMarca();
+                color = listaProductosERP.get(i).getColor();
+                talla = listaProductosERP.get(i).getTalla();
+                calibre = listaProductosERP.get(i).getCalibre();
+
+                if (marca != null && !marca.trim().isEmpty()) {
+                    contadorMarca++;
+                } else {
+                    contadorMarcaEmpty++;
+                }
+
+                if (color != null && !color.trim().isEmpty()) {
+                    contadorColor++;
+                } else {
+                    contadorColorEmpty++;
+                }
+
+                if (talla != null && !talla.trim().isEmpty()) {
+                    contadorTalla++;
+                } else {
+                    contadorTallaEmpty++;
+                }
+
+                if (calibre != null && !calibre.trim().isEmpty()) {
+                    contadorCalibre++;
+                } else {
+                    contadorCalibreEmpty++;
+                }
+            }
+        }
+
+        System.out.println("Articulos con marca: " + contadorMarca);
+        System.out.println("Articulos con marca vacía: " + contadorMarcaEmpty);
+        System.out.println("Articulos con color: " + contadorColor);
+        System.out.println("Articulos con color vacío: " + contadorColorEmpty);
+        System.out.println("Articulos con talla: " + contadorTalla);
+        System.out.println("Articulos con talla vacío: " + contadorTallaEmpty);
+        System.out.println("Articulos con calibre: " + contadorCalibre);
+        System.out.println("Articulos con calibre vacío: " + contadorCalibreEmpty);
     }
 }

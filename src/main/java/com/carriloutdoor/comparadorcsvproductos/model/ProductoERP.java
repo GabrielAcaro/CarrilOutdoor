@@ -20,6 +20,7 @@ public class ProductoERP {
     private String marca;
     private String modelo;
     private String talla;
+    private String calibre;
     private String color;
     private String codigoUnificado;
     
@@ -37,12 +38,13 @@ public class ProductoERP {
         marca = "";
         modelo = "";
         talla = "";
+        calibre = "";
         color = "";
         codigoUnificado = "";
     }
 
     public ProductoERP(String codigo, String origenCsv, String nombre, String nombreProveedor, String nombreNormalizado, String codReferencia,
-            String ean, String observaciones, String marca, String modelo, String talla, String color, String codigoUnificado) {
+            String ean, String observaciones, String marca, String modelo, String talla,String calibre, String color, String codigoUnificado) {
         this.codigo = codigo;
         this.origenCsv = origenCsv;
         this.nombre = nombre;
@@ -54,6 +56,7 @@ public class ProductoERP {
         this.marca = marca;
         this.modelo = modelo;
         this.talla = talla;
+        this.calibre = calibre;
         this.color = color;
         this.codigoUnificado = codigoUnificado;
     }
@@ -148,6 +151,14 @@ public class ProductoERP {
         this.talla = talla;
     }
 
+    public String getCalibre() {
+        return calibre;
+    }
+
+    public void setCalibre(String calibre) {
+        this.calibre = calibre;
+    }
+
     public String getColor() {
         return color;
     }
@@ -163,20 +174,31 @@ public class ProductoERP {
     public void setCodigoUnificado(String codigoUnificado) {
         this.codigoUnificado = codigoUnificado;
     }
-    
+
     // Otros metodos
-    
-    public static void tieneCodReferencia(ArrayList<ProductoERP> listaProductosERP) {
-        
-    }
+
+
     
     // ToString
 
+
     @Override
     public String toString() {
-        return "ProductoERP{" + "codigo=" + codigo + ", origenCsv=" + origenCsv + ", nombre=" + nombre + ", nombreProveedor=" 
-                + nombreProveedor + ", nombreNormalizado=" + nombreNormalizado + ", codReferencia=" + codReferencia + ", ean=" 
-                + ean + ", observaciones=" + observaciones + ", marca=" + marca + ", modelo=" + modelo + ", talla=" + talla 
-                + ", color=" + color + ", codigoUnificado=" + codigoUnificado + '}';
+        return "ProductoERP{" +
+                "codigo='" + codigo + '\'' +
+                ", origenCsv='" + origenCsv + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", nombreProveedor='" + nombreProveedor + '\'' +
+                ", nombreNormalizado='" + nombreNormalizado + '\'' +
+                ", codReferencia='" + codReferencia + '\'' +
+                ", ean='" + ean + '\'' +
+                ", observaciones='" + observaciones + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", talla='" + talla + '\'' +
+                ", calibre='" + calibre + '\'' +
+                ", color='" + color + '\'' +
+                ", codigoUnificado='" + codigoUnificado + '\'' +
+                '}';
     }
 }

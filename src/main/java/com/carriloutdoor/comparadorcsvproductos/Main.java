@@ -7,6 +7,8 @@ import com.carriloutdoor.comparadorcsvproductos.model.ProductoPrestaShop;
 import com.carriloutdoor.comparadorcsvproductos.service.BuscadorProductosService;
 import com.carriloutdoor.comparadorcsvproductos.service.CsvService;
 import com.carriloutdoor.comparadorcsvproductos.service.InformeResultadoService;
+import com.carriloutdoor.comparadorcsvproductos.service.NormalizadorService;
+import com.carriloutdoor.comparadorcsvproductos.util.TextoUtil;
 
 /**
  * Main
@@ -99,8 +101,12 @@ public class Main {
         CsvService.leerLineasCsv(rutaCsvArtErp, listaProductosERP, listaProductosPrestaShop);
         CsvService.leerLineasCsv(rutaCsvSubArtErp, listaProductosERP, listaProductosPrestaShop);
         CsvService.leerLineasCsv(rutaCsvArtPrestaShop, listaProductosERP, listaProductosPrestaShop);
-        System.out.println(""); // Salto de linea
-        
+
+        System.out.println("");
+
+        NormalizadorService.detectorAtributosProductosERP(listaProductosERP);
+
+        InformeResultadoService.mostrarResumenAtributosProductosERP(listaProductosERP, listaProductosPrestaShop);
         do {
             menu(); // Llamamos al menu del programa
             userOption = Integer.parseInt(scanner()); // Pedimos al usuario que opcion del programa usar
@@ -124,6 +130,18 @@ public class Main {
 
                 case 5 -> {
                     BuscadorProductosService.buscarProductos(listaProductosERP, listaProductosPrestaShop);
+                }
+
+                case 7 -> {
+                    for (int i = 0; i < listaProductosERP.size(); i++) {
+                        if (listaProductosERP.get(i).getMarca() == null || listaProductosERP.get(i).getMarca().trim().isEmpty()) {
+                            System.out.println("Codigo: " + listaProductosERP.get(i).getCodigo());
+                            System.out.println("Nombre: " + listaProductosERP.get(i).getNombre());
+                            System.out.println("Marca: " + listaProductosERP.get(i).getMarca());
+                            System.out.println("Color: " + listaProductosERP.get(i).getColor());
+                            System.out.println("///////////////////////////");
+                        }
+                    }
                 }
                 
                 case 0 -> {
